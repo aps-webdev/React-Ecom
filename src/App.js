@@ -1,11 +1,13 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
+
+import HomePage from "./container/homepage/homepage.container.jsx";
 
 function App() {
   return (
-    <div>
-      Hello World !
-    </div>
+    <React.Fragment>
+      <HomePage />
+    </React.Fragment>
   );
 }
 
