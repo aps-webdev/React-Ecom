@@ -1,9 +1,13 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom'; //will give access to history and match prop
 import './menu-item.styles.scss';
 
-function MenuItem({ title, image, size }) {
+function MenuItem({ title, image, size, linkUrl, match, history }) {
   return (
-    <div className={`menu-item ${size}`}>
+    <div
+      className={`menu-item ${size}`}
+      onClick={() => history.push(`${match.url}${linkUrl}`)}
+    >
       <div
         className='background-image'
         style={{ backgroundImage: `url(${image})` }}
@@ -16,4 +20,4 @@ function MenuItem({ title, image, size }) {
   );
 }
 
-export default MenuItem;
+export default withRouter(MenuItem);
