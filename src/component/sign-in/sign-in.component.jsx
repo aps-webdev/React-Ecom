@@ -4,7 +4,10 @@ import './sign-in.styles.scss';
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
-import { SignInWithGoogle } from '../../firebase/firebase.utils';
+import {
+  createUserProfileDocument,
+  SignInWithGoogle,
+} from '../../firebase/firebase.utils';
 
 class SignIn extends Component {
   constructor(props) {
@@ -15,9 +18,16 @@ class SignIn extends Component {
     };
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefalut();
-    this.setState({ email: '', password: '' });
+    const { email, password } = this.state;
+
+    try {
+      await createUserProfileDocument(email, password);
+      this.setState({ email: '', password: '' });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   handleChange = (e) => {
