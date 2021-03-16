@@ -3,13 +3,13 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const config = {
-  apiKey: 'AIzaSyA9TA27Ms-OqGIOnLHYAGM7t-j5-LsiAsg',
-  authDomain: 'react-ecom-9178b.firebaseapp.com',
-  projectId: 'react-ecom-9178b',
-  storageBucket: 'react-ecom-9178b.appspot.com',
-  messagingSenderId: '359101604777',
-  appId: '1:359101604777:web:04ef3204e4c805bb78dab8',
-  measurementId: 'G-BZZJ7MEHQH',
+  apiKey: 'AIzaSyBP3bIjoSO7Y8Clr959tu1o3Xqy0cCixZE',
+  authDomain: 'ecom-0918.firebaseapp.com',
+  projectId: 'ecom-0918',
+  storageBucket: 'ecom-0918.appspot.com',
+  messagingSenderId: '295222913521',
+  appId: '1:295222913521:web:e60db943e87d9637d7fc50',
+  measurementId: 'G-9TLE5JLTVL',
 };
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
