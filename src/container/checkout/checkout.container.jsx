@@ -32,7 +32,7 @@ function CheckoutPage({ cartItems, total }) {
         </div>
       </div>
       {cartItems.map((cartItem) => (
-        <CheckoutItems key={cartItem.id} cartItems={cartItem} />
+        <CheckoutItems key={cartItem.id} cartItem={cartItem} />
       ))}
       <div className='total'>
         <span>TOTAL: &#x20B9;{total}</span>
