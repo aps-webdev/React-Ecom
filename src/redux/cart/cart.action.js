@@ -18,3 +18,7 @@ export const removeItem = (item) => ({
   type: CartActionTypes.REMOVE_ITEM,
   payload: item,
 });
+
+export const afterPaymentRemoveBagItems = () => ({
+  type: CartActionTypes.AFTER_PAYMENT_CART_ITEMS,
+});

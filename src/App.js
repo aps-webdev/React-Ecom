@@ -10,12 +10,14 @@ import Header from './component/header/header.component';
 
 import { setCurrentUser } from './redux/user/user.action';
 import { selectCurrentUser } from './redux/user/user.selector';
+import { selectPaymentCompleted } from './redux/payment/payment.selector';
 
 import HomePage from './container/homepage/homepage.container';
 import CheckoutPage from './container/checkout/checkout.container';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import SignInAndSignUpPage from './container/sign-in-and-sign-up/sign-in-and-sign-up.component';
+import SuccessPage from './component/success-page/success-page.component';
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -53,6 +55,17 @@ class App extends React.Component {
           <Route exact path='/checkout' component={CheckoutPage} />
           <Route
             exact
+            path='/success'
+            render={() =>
+              !this.props.paymentCompleted ? (
+                <Redirect to='/' />
+              ) : (
+                <SuccessPage />
+              )
+            }
+          />
+          <Route
+            exact
             path='/signin'
             render={() =>
               this.props.currentUser ? (
@@ -69,6 +82,7 @@ class App extends React.Component {
 }
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
+  paymentCompleted: selectPaymentCompleted,
 });
 
 const mapDispatchToProps = (dispatch) => ({
