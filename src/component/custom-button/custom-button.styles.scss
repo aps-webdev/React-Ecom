@@ -43,4 +43,18 @@
       border: none;
     }
   }
+
+  &.pay {
+    margin-left: auto;
+  }
+
+  &.disable {
+    opacity: 0.5;
+    cursor: not-allowed;
+    &:hover {
+      background-color: black;
+      color: white;
+      border: none;
+    }
+  }
 }
